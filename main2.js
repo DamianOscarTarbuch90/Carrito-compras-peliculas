@@ -1,3 +1,10 @@
+const opcion_1 = 500;
+const opcion_2 = 500;
+const opcion_3 = 500;
+const opcion_4 = 1000;
+const opcion_5 = 1000;
+const opcion_6 = 1000;
+
 let ingresarUsuario = prompt("Por favor ingrese su nombre completo");
 
 alert("Bienvenido a la tienda virtual " + ingresarUsuario);
@@ -51,29 +58,32 @@ while (consultaCompra != "NO" && consultaCompra != "no") {
     );
   }
 
+  function calcularPrecio(segundaSeleccion)
+
   switch (segundaSeleccion) {
     case 1:
-      alert("Ud seleccinó el señor de los anillos. Valor $500");
+      alert("Ud seleccinó el señor de los anillos");
       break;
 
     case 2:
-      alert("Ud seleccionó Harry Potter. Valor $500");
+      alert("Ud seleccionó Harry Potter");
       break;
 
     case 3:
-      alert("Ud seleccionó Star wars. Valor $500");
+      alert("Ud seleccionó Star wars");
       break;
 
     case 4:
-      alert("Ud seleccionó Breaking bad. Valor $1000");
+      alert("Ud seleccionó Breaking bad");
+    
       break;
 
     case 5:
-      alert("Ud seleccionó Peaky Blinders. Valor $1000");
+      alert("Ud seleccionó Peaky Blinders");
       break;
 
     case 6:
-      alert("Ud seleccionó Prison Break. Valor $1000");
+      alert("Ud seleccionó Prison Break");
       break;
 
     default:
@@ -83,19 +93,17 @@ while (consultaCompra != "NO" && consultaCompra != "no") {
 
   let consultaOtraCompra = prompt("Desea realizar otra compra?");
 
-  if (
-    consultaOtraCompra != "SI" &&
-    consultaOtraCompra != "Si" &&
-    consultaCompra != "si"
-  ) {
-    alert("Muchas gracias por su compra. El valor total es de $");
-  } else {
-    alert("Continue con su compra");
+  if (consultaOtraCompra != "NO" && consultaOtraCompra != "No" && consultaOtraCompra != "no") {
+    alert("Continuemos con la compra");
+    
     segundaSeleccion = Number(
       prompt(
         "Seleccione el título que ud desee, escribiendo solo el número correspodiente al mismo según el siguiente listado: \n \n 1) El señor de los anillos \n 2) Harry Potter \n 3) Star wars \n 4) Breaking bad \n 5) Peaky blinders \n 6) Prison break"
       )
     );
+
+  } else {
+    alert("Gracias por su compra " + ingresarUsuario + ". Hasta pronto")
   }
 }
 alert("Gracias por tu visita" + " " + ingresarUsuario + ". Hasta pronto.");
