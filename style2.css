@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0; }
+
+.main {
+background-color: rgb(228, 228, 228);}
+.main__div h1 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.main__div img {
+width: 100%;
+height: 100%;
+}

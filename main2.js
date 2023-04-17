@@ -1,3 +1,4 @@
+//Declaración de variables de precios de películas y seriers
 const opcion_1 = 500;
 const opcion_2 = 500;
 const opcion_3 = 500;
@@ -5,6 +6,7 @@ const opcion_4 = 1000;
 const opcion_5 = 1000;
 const opcion_6 = 1000;
 
+//Aplicando funcionalidad a la función con un switch
 const calcularPrecio = (segundaSeleccion) => {
 
   switch (segundaSeleccion) {
@@ -38,6 +40,7 @@ const calcularPrecio = (segundaSeleccion) => {
   }
 }
 
+//Inicialización de variable que determina si después de hacer la primera compra sigue comprando o no
 let continuarCompra = true;
 
 let ingresarUsuario = prompt("Por favor ingrese su nombre completo");
