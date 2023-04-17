@@ -5,7 +5,7 @@ const opcion_4 = 1000;
 const opcion_5 = 1000;
 const opcion_6 = 1000;
 
-const PRECIO = (segundaSeleccion) => {
+const calcularPrecio = (segundaSeleccion) => {
 
   switch (segundaSeleccion) {
     case 1:
@@ -42,10 +42,15 @@ let continuarCompra = true;
 
 let ingresarUsuario = prompt("Por favor ingrese su nombre completo");
 
+while (ingresarUsuario === "") {
+  alert("Por favor ingrese un nombre válido");
+  ingresarUsuario = prompt("Por favor ingrese su nombre completo");
+}
+
 alert("Bienvenido a la tienda virtual " + ingresarUsuario);
 
 let consultaCompra = prompt(
-  ingresarUsuario + ", Desea realizar una compra SI o NO?"
+  ingresarUsuario + ", desea realizar una compra SI o NO?"
 );
 
 while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
@@ -93,7 +98,9 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     );
   }
 
-  function calcularPrecio(segundaSeleccion);
+  const precio = calcularPrecio(segundaSeleccion)
+
+  alert("Ud compró un producto de " + precio)
 
   let consultaOtraCompra = prompt("Desea realizar otra compra?");
 
@@ -102,7 +109,6 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   } else {
     continuarCompra = false
-    alert("Gracias por su compra " + ingresarUsuario + ". Hasta pronto")
   }
 }
-alert("Gracias por tu visita" + " " + ingresarUsuario + ". Hasta pronto.");
+alert("Gracias por su visita" + " " + ingresarUsuario + ". Hasta pronto!");
