@@ -67,15 +67,8 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
   let primeraEleccion = prompt("Quiere comprar una serie o una película?");
 
   while (
-    primeraEleccion != "SERIE" &&
-    primeraEleccion != "serie" &&
-    primeraEleccion != "Serie" &&
-    primeraEleccion != "PELICULA" &&
-    primeraEleccion != "pelicula" &&
-    primeraEleccion != "Pelicula" &&
-    primeraEleccion != "PELÍCULA" &&
-    primeraEleccion != "película" &&
-    primeraEleccion != "Película"
+    primeraEleccion.toLowerCase() != "serie" &&
+    primeraEleccion.toLowerCase() != "pelicula"
   ) {
     alert("Su respuesta es inválida");
     primeraEleccion = prompt("Quiere comprar una serie o una película");
@@ -93,14 +86,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     )
   );
 
-  while (
-    segundaSeleccion != 1 &&
-    segundaSeleccion != 2 &&
-    segundaSeleccion != 3 &&
-    segundaSeleccion != 4 &&
-    segundaSeleccion != 5 &&
-    segundaSeleccion != 6
-  ) {
+  while (segundaSeleccion > 6 || segundaSeleccion < 1) {
     alert("Por favor seleccione una opción correcta");
 
     segundaSeleccion = Number(
@@ -120,7 +106,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
 //Condicional que determina si se sigue o no con la compra
 
-  if (consultaOtraCompra != "NO" && consultaOtraCompra != "No" && consultaOtraCompra != "no") {
+  if (consultaOtraCompra.toLowerCase() != "no") {
     alert("Continuemos con la compra");
 
   } else {
