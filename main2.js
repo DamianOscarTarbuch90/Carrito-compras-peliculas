@@ -1,46 +1,79 @@
-//Declaración de variables de precios de películas y seriers
+//Se crean objetos, uno por cada producto seleccionable en la tienda con sus propiedades básicas
 
-const opcion_1 = 500;
-const opcion_2 = 500;
-const opcion_3 = 500;
-const opcion_4 = 1000;
-const opcion_5 = 1000;
-const opcion_6 = 1000;
+const opcion_1 = {
+  nombre: "El señor de los anillos",
+  precio: 1000
+}
 
-//Aplicando funcionalidad a la función con un switch
+const opcion_2 = {
+  nombre: "Harry Potter",
+  precio: 1000
+}
 
-const calcularPrecio = (segundaSeleccion) => {
+const opcion_3 = {
+  nombre: "Star wars",
+  precio: 1000
+}
+
+const opcion_4 = {
+  nombre: "Breaking bad",
+  precio: 1500
+}
+
+const opcion_5 = {
+  nombre: "Game of thrones",
+  precio: 1500
+}
+
+const opcion_6 = {
+  nombre: "Prison break",
+  precio: 1500
+}
+
+
+//Creamos una función para obtener el producto
+
+const obtenerProducto = (segundaSeleccion) => {
 
   switch (segundaSeleccion) {
     case 1:
-      alert("Ud seleccinó el señor de los anillos");
-      return 1000;
+      alert("Ud seleccinó " + opcion_1.nombre);
+      return opcion_1.nombre;
 
     case 2:
-      alert("Ud seleccionó Harry Potter");
-      return 1000;
+      alert("Ud seleccinó " + opcion_2.nombre);
+      return opcion_2.nombre;
 
     case 3:
-      alert("Ud seleccionó Star wars");
-      return 1000;
+      alert("Ud seleccinó " + opcion_3.nombre);
+      return opcion_3.nombre;
 
     case 4:
-      alert("Ud seleccionó Breaking bad");
-      return 1500;
+      alert("Ud seleccinó " + opcion_4.nombre);
+      return opcion_4.nombre;
 
     case 5:
-      alert("Ud seleccionó Game of thrones");
-      return 1500;
+      alert("Ud seleccinó " + opcion_5.nombre);
+      return opcion_5.nombre;
 
     case 6:
-      alert("Ud seleccionó Prison Break");
-      return 1500;
+      alert("Ud seleccinó " + opcion_6.nombre);
+      return opcion_6.nombre;
 
     default:
       alert("Ud no seleccionó ninguna opción correctamente");
       break;
   }
 }
+
+const sumarSeleccion = (segundaSeleccion) => {
+  
+}
+
+//Se declara un array para el carrito de compras
+
+let carrito = [];
+
 
 //Inicialización de variable que determina si después de hacer la primera compra sigue comprando o no
 
@@ -98,9 +131,11 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
 //Llamado a función declarada al prinicpio del código
 
-  const precio = calcularPrecio(segundaSeleccion)
+  const producto = obtenerProducto(segundaSeleccion)
 
-  alert("Ud compró un producto de " + precio)
+//Por cada venta sumamos al carrito el producto que se vendió con la función push del array
+
+  carrito.push(producto);
 
   let consultaOtraCompra = prompt("Desea realizar otra compra?");
 
@@ -110,7 +145,8 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     alert("Continuemos con la compra");
 
   } else {
-    continuarCompra = false
+    continuarCompra = false;
+    alert("Ud compró los siguientes títulos: " + carrito);
   }
 }
 
