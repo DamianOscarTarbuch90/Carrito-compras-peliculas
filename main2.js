@@ -30,6 +30,15 @@ const opcion_6 = {
   precio: 1500
 }
 
+function Opcion(nombre, precio)  {
+  this.nombre = nombre;
+  this.precio = precio;
+}
+
+let opcion_7 = new Opcion('Vikingos', '1500')
+
+let opcion_8 = new Opcion ('Los Simpsons', '1500')
+
 
 //Creamos una función para obtener el producto
 
@@ -38,27 +47,36 @@ const obtenerProducto = (segundaSeleccion) => {
   switch (segundaSeleccion) {
     case 1:
       alert("Ud seleccinó " + opcion_1.nombre);
-      return opcion_1.nombre;
+      return opcion_1.nombre + " $" + opcion_1.precio;
 
     case 2:
       alert("Ud seleccinó " + opcion_2.nombre);
-      return opcion_2.nombre;
+      return opcion_2.nombre + " $" + opcion_2.precio;
 
     case 3:
       alert("Ud seleccinó " + opcion_3.nombre);
-      return opcion_3.nombre;
+      return opcion_3.nombre + " $" + opcion_3.precio;
 
     case 4:
       alert("Ud seleccinó " + opcion_4.nombre);
-      return opcion_4.nombre;
+      return opcion_4.nombre + " $" + opcion_4.precio;
 
     case 5:
       alert("Ud seleccinó " + opcion_5.nombre);
-      return opcion_5.nombre;
+      return opcion_5.nombre + " $" + opcion_5.precio;
 
     case 6:
       alert("Ud seleccinó " + opcion_6.nombre);
-      return opcion_6.nombre;
+      return opcion_6.nombre + " $" + opcion_6.precio;
+
+      case 7:
+      alert("Ud seleccinó " + opcion_7.nombre);
+      return opcion_7.nombre + " $" + opcion_7.precio;
+
+      case 8:
+      alert("Ud seleccinó " + opcion_8.nombre);
+      return opcion_8.nombre + " $" + opcion_8.precio;
+
 
     default:
       alert("Ud no seleccionó ninguna opción correctamente");
@@ -96,6 +114,13 @@ let consultaCompra = prompt(
 
 //While principal de elección de compra por si o por no
 
+while (consultaCompra.toLowerCase() != 'no' && consultaCompra.toLowerCase() != 'si') {
+  alert("Por favor ingrese solamente SI o NO");
+  consultaCompra = prompt(
+    ingresarUsuario + ", desea realizar una compra SI o NO?"
+  );
+}
+
 while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
   let primeraEleccion = prompt("Quiere comprar una serie o una película?");
 
@@ -115,16 +140,16 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   let segundaSeleccion = Number(
     prompt(
-      "Seleccione el título que ud desee, escribiendo solo el número correspodiente al mismo según el siguiente listado: \n \n 1) El señor de los anillos - $1000 \n 2) Harry Potter - $1000 \n 3) Star wars - $1000 \n 4) Breaking bad - $1500 \n 5) Gameof thrones - $1500 \n 6) Prison break - $1500"
+      "Seleccione el título que ud desee, escribiendo solo el número correspodiente al mismo según el siguiente listado: \n \n 1) El señor de los anillos - $1000 \n 2) Harry Potter - $1000 \n 3) Star wars - $1000 \n 4) Breaking bad - $1500 \n 5) Gameof thrones - $1500 \n 6) Prison break - $1500 \n 7) Vikingos - $1500 \n 8) Los Simpsons - $1500"
     )
   );
 
-  while (segundaSeleccion > 6 || segundaSeleccion < 1) {
+  while (segundaSeleccion > 8 || segundaSeleccion < 1) {
     alert("Por favor seleccione una opción correcta");
 
     segundaSeleccion = Number(
       prompt(
-        "Seleccione el título que ud desee, escribiendo solo el número correspodiente al mismo según el siguiente listado: \n \n 1) El señor de los anillos - $1000 \n 2) Harry Potter - $1000 \n 3) Star wars - $1000 \n 4) Breaking bad - $1500 \n 5) Game of thrones - $1500 \n 6) Prison break - $1500"
+        "Seleccione el título que ud desee, escribiendo solo el número correspodiente al mismo según el siguiente listado: \n \n 1) El señor de los anillos - $1000 \n 2) Harry Potter - $1000 \n 3) Star wars - $1000 \n 4) Breaking bad - $1500 \n 5) Game of thrones - $1500 \n 6) Prison break - $1500 \n Vikingos - $1500 \n 8) Los Simpsons - $1500"
       )
     );
   }
@@ -137,6 +162,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   carrito.push(producto);
 
+
   let consultaOtraCompra = prompt("Desea realizar otra compra?");
 
 //Condicional que determina si se sigue o no con la compra
@@ -146,7 +172,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   } else {
     continuarCompra = false;
-    alert("Ud compró los siguientes títulos: " + carrito);
+    alert("Ud compró los siguientes títulos con sus precios: " + carrito);
   }
 }
 
