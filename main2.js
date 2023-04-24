@@ -1,46 +1,23 @@
 //Se crean objetos, uno por cada producto seleccionable en la tienda con sus propiedades básicas
 
-const opcion_1 = {
-  nombre: "El señor de los anillos",
-  precio: 1000
-}
+const opcion_1 = {nombre: "El señor de los anillos", precio: 1000}
+const opcion_2 = {nombre: "Harry Potter", precio: 1000}
+const opcion_3 = {nombre: "Star wars", precio: 1000}
+const opcion_4 = {nombre: "Breaking bad", precio: 1500}
+const opcion_5 = {nombre: "Game of thrones", precio: 1500}
+const opcion_6 = {nombre: "Prison break", precio: 1500}
 
-const opcion_2 = {
-  nombre: "Harry Potter",
-  precio: 1000
-}
-
-const opcion_3 = {
-  nombre: "Star wars",
-  precio: 1000
-}
-
-const opcion_4 = {
-  nombre: "Breaking bad",
-  precio: 1500
-}
-
-const opcion_5 = {
-  nombre: "Game of thrones",
-  precio: 1500
-}
-
-const opcion_6 = {
-  nombre: "Prison break",
-  precio: 1500
-}
+//Creo función constructora para agregar nuevos objetos
 
 function Opcion(nombre, precio)  {
   this.nombre = nombre;
   this.precio = precio;
 }
 
-let opcion_7 = new Opcion('Vikingos', '1500')
+let opcion_7 = new Opcion('Vikingos', '1500');
+let opcion_8 = new Opcion ('Los Simpsons', '1500');
 
-let opcion_8 = new Opcion ('Los Simpsons', '1500')
-
-
-//Creamos una función para obtener el producto
+//Creamos una función para obtener el producto con switch
 
 const obtenerProducto = (segundaSeleccion) => {
 
@@ -84,10 +61,6 @@ const obtenerProducto = (segundaSeleccion) => {
   }
 }
 
-const sumarSeleccion = (segundaSeleccion) => {
-  
-}
-
 //Se declara un array para el carrito de compras
 
 let carrito = [];
@@ -106,7 +79,7 @@ while (ingresarUsuario === "") {
   ingresarUsuario = prompt("Por favor ingrese su nombre completo");
 }
 
-alert("Bienvenido a la tienda virtual " + ingresarUsuario);
+alert(`Bienvenido a la tienda virtual ${ingresarUsuario}`);
 
 let consultaCompra = prompt(
   ingresarUsuario + ", desea realizar una compra SI o NO?"
@@ -117,7 +90,7 @@ let consultaCompra = prompt(
 while (consultaCompra.toLowerCase() != 'no' && consultaCompra.toLowerCase() != 'si') {
   alert("Por favor ingrese solamente SI o NO");
   consultaCompra = prompt(
-    ingresarUsuario + ", desea realizar una compra SI o NO?"
+    `${ingresarUsuario}, desea realizar una compra SI o NO?`
   );
 }
 
@@ -162,7 +135,6 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   carrito.push(producto);
 
-
   let consultaOtraCompra = prompt("Desea realizar otra compra?");
 
 //Condicional que determina si se sigue o no con la compra
@@ -172,10 +144,10 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   } else {
     continuarCompra = false;
-    alert("Ud compró los siguientes títulos con sus precios: " + carrito);
+    alert(`Ud compró los siguientes títulos con sus precios: ${carrito}`);
   }
 }
 
 //Final del código cuando el cliente no quiere comprar más y salimos del while
 
-alert("Gracias por su visita" + " " + ingresarUsuario + ". Hasta pronto!");
+alert(`Gracias por su visita ${ingresarUsuario}. Hasta pronto`);
