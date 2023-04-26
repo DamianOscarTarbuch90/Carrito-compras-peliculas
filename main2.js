@@ -1,11 +1,13 @@
 //Se crean objetos, uno por cada producto seleccionable en la tienda con sus propiedades básicas
 
-const opcion_1 = {nombre: "El señor de los anillos", precio: 1000}
-const opcion_2 = {nombre: "Harry Potter", precio: 1000}
-const opcion_3 = {nombre: "Star wars", precio: 1000}
-const opcion_4 = {nombre: "Breaking bad", precio: 1500}
-const opcion_5 = {nombre: "Game of thrones", precio: 1500}
-const opcion_6 = {nombre: "Prison break", precio: 1500}
+const catalogo = [
+ opcion_1 = {nombre: "El señor de los anillos", precio: 1000},
+ opcion_2 = {nombre: "Harry Potter", precio: 1000},
+ opcion_3 = {nombre: "Star wars", precio: 1000},
+ opcion_4 = {nombre: "Breaking bad", precio: 1500},
+ opcion_5 = {nombre: "Game of thrones", precio: 1500},
+ opcion_6 = {nombre: "Prison break", precio: 1500},
+]
 
 //Creo función constructora para agregar nuevos objetos
 
@@ -54,7 +56,6 @@ const obtenerProducto = (segundaSeleccion) => {
       alert("Ud seleccinó " + opcion_8.nombre);
       return opcion_8.nombre + " $" + opcion_8.precio;
 
-
     default:
       alert("Ud no seleccionó ninguna opción correctamente");
       break;
@@ -96,6 +97,14 @@ while (consultaCompra.toLowerCase() != 'no' && consultaCompra.toLowerCase() != '
 
 while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
   let primeraEleccion = prompt("Quiere comprar una serie o una película?");
+
+if (consultaCompra.toLowerCase() == 'serie') {
+  const opcionCompra_1 = catalogo.filter((opciones) => opciones.precio = 1500)
+  alert(opcionCompra_1)
+} else if (consultaCompra.toLowerCase() == 'pelicula') {
+  const opcionCompra_2 = catalogo.filter((opciones) => opciones.precio = 1000)
+  alert(opcionCompra_2)
+}
 
   while (
     primeraEleccion.toLowerCase() != "serie" &&
