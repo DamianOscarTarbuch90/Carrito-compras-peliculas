@@ -160,3 +160,11 @@ if (consultaCompra.toLowerCase() == 'serie') {
 //Final del código cuando el cliente no quiere comprar más y salimos del while
 
 alert(`Gracias por su visita ${ingresarUsuario}. Hasta pronto`);
+
+//Interacción con el DOM con id y modificación de elemento con innertext
+
+let titulo = document.getElementById("main__div__h1");
+console.log(titulo.innerHTML);
+
+titulo.innerText = "TU TIENDA DE PELÍCULAS Y SERIES"
+console.log(titulo.innerText)
