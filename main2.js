@@ -168,3 +168,24 @@ console.log(titulo.innerHTML);
 
 titulo.innerText = "TU TIENDA DE PELÍCULAS Y SERIES"
 console.log(titulo.innerText)
+
+//Se agregan datos al local Storage
+
+localStorage.setItem("Compra", "Peliculas y series")
+
+let verLocalS = localStorage.getItem("Compra")
+
+console.log(verLocalS)
+
+//Se agregan datos al session Storage
+
+sessionStorage.setItem("Email", "compras@carrito.com")
+sessionStorage.setItem("Página", "www.tiendadepeliculas.com.ar")
+
+//Remover dato del session storage
+
+sessionStorage.removeItem("Página")
+
+let verSessionS = sessionStorage.getItem("Email")
+
+console.log(verSessionS)
