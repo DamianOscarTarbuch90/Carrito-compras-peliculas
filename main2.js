@@ -1,12 +1,12 @@
 //Se crean objetos, uno por cada producto seleccionable en la tienda con sus propiedades básicas
 
 const catalogo = [
-opcion_1 ={nombre: "El señor de los anillos", precio: 1000},
-opcion_2 ={nombre: "Harry Potter", precio: 1000},
-opcion_3 ={nombre: "Star wars", precio: 1000},
-opcion_4 ={nombre: "Breaking bad", precio: 1500}, 
-opcion_5 ={nombre: "Game of thrones", precio: 1500},
-opcion_6 ={nombre: "Prison break", precio: 1500},
+{nombre: "El señor de los anillos", precio: 1000},
+{nombre: "Harry Potter", precio: 1000},
+{nombre: "Star wars", precio: 1000},
+{nombre: "Breaking bad", precio: 1500}, 
+{nombre: "Game of thrones", precio: 1500},
+{nombre: "Prison break", precio: 1500},
 ]
 
 //Creo función constructora para agregar nuevos objetos
@@ -25,28 +25,28 @@ const obtenerProducto = (segundaSeleccion) => {
 
   switch (segundaSeleccion) {
     case 1:
-      alert("Ud seleccinó " + opcion_1.nombre);
-      return opcion_1.nombre + " $" + opcion_1.precio;
+      alert("Ud seleccinó " + catalogo[0].nombre);
+      return catalogo[0].nombre + " $" + catalogo[0].precio ;
 
     case 2:
-      alert("Ud seleccinó " + opcion_2.nombre);
-      return opcion_2.nombre + " $" + opcion_2.precio;
+      alert("Ud seleccinó " + catalogo[1].nombre);
+      return catalogo[1].nombre + " $" + catalogo[1].precio;
 
     case 3:
-      alert("Ud seleccinó " + opcion_3.nombre);
-      return opcion_3.nombre + " $" + opcion_3.precio;
+      alert("Ud seleccinó " + catalogo[2].nombre);
+      return catalogo[2].nombre + " $" + catalogo[2].precio;
 
     case 4:
-      alert("Ud seleccinó " + opcion_4.nombre);
-      return opcion_4.nombre + " $" + opcion_4.precio;
+      alert("Ud seleccinó " + catalogo[3].nombre);
+      return catalogo[3].nombre + " $" + catalogo[3].precio;
 
     case 5:
-      alert("Ud seleccinó " + opcion_5.nombre);
-      return opcion_5.nombre + " $" + opcion_5.precio;
+      alert("Ud seleccinó " + catalogo[4].nombre);
+      return catalogo[4].nombre + " $" + catalogo[4].precio;
 
     case 6:
-      alert("Ud seleccinó " + opcion_6.nombre);
-      return opcion_6.nombre + " $" + opcion_6.precio;
+      alert("Ud seleccinó " + catalogo[5].nombre);
+      return catalogo[5].nombre + " $" + catalogo[5].precio;
 
       case 7:
       alert("Ud seleccinó " + opcion_7.nombre);
@@ -65,7 +65,6 @@ const obtenerProducto = (segundaSeleccion) => {
 //Se declara un array para el carrito de compras
 
 let carrito = [];
-
 
 //Inicialización de variable que determina si después de hacer la primera compra sigue comprando o no
 
@@ -86,14 +85,14 @@ let consultaCompra = prompt(
   ingresarUsuario + ", desea realizar una compra SI o NO?"
 );
 
-//While principal de elección de compra por si o por no
-
 while (consultaCompra.toLowerCase() != 'no' && consultaCompra.toLowerCase() != 'si') {
   alert("Por favor ingrese solamente SI o NO");
   consultaCompra = prompt(
     `${ingresarUsuario}, desea realizar una compra SI o NO?`
   );
 }
+
+//While principal de elección de compra por si o por no
 
 while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
   let primeraEleccion = prompt("Quiere comprar una serie o una película?");
@@ -110,13 +109,13 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     "Perfecto. A continuación le brindaremos un listado de nuestro catálogo con sus respectivos precios"
   );
 
-  // if (primeraEleccion.toLowerCase() == 'serie') {
-  //   const opcionCompra_1 = catalogo.filter((opciones) => opciones.precio > 1000);
-  //   alert(opcionCompra_1)
-  // } else if (primeraEleccion.toLowerCase() == 'pelicula') {
-  //   const opcionCompra_2 = catalogo.filter((opciones) => opciones.precio < 1500)
-  //   alert(opcionCompra_2)
-  // } 
+  if (primeraEleccion.toLowerCase() == 'serie') {
+    const opcionCompra_1 = catalogo.filter((opciones) => opciones.precio === 1000);
+    alert(opcionCompra_1)
+  } else if (primeraEleccion.toLowerCase() == 'pelicula') {
+    const opcionCompra_2 = catalogo.filter((opciones) => opciones.precio === 1500)
+    alert(opcionCompra_2)
+  } 
 
   //Elección del usuario del producto en caso de querer comprar.
 
@@ -153,7 +152,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   } else {
     continuarCompra = false;
-    alert(`Ud compró los siguientes títulos con sus precios: ${carrito}`);
+    alert(`Ud compró los siguientes títulos con sus precios: ${carrito.join(", ")}`);
   }
 }
 
