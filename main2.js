@@ -17,49 +17,68 @@ function Opcion(nombre, precio)  {
 }
 
 let opcion_7 = new Opcion('Vikingos', '1500');
-let opcion_8 = new Opcion ('Los Simpsons', '1500');
+let opcion_8 = new Opcion ("Los Simpsons", '1500');
 
 //Creamos una función para obtener el producto con switch
 
 const obtenerProducto = (segundaSeleccion) => {
 
+  let resultado = null
+
   switch (segundaSeleccion) {
     case 1:
+      resultado = catalogo.find(pelicula => pelicula.nombre === "El señor de los anillos");
       alert("Ud seleccinó " + catalogo[0].nombre);
-      return catalogo[0].nombre + " $" + catalogo[0].precio ;
+      return catalogo[0].nombre + ' $' + catalogo[0].precio;
+      break;
 
     case 2:
+      resultado = catalogo.find(pelicula => pelicula.nombre === "Harry Potter");
       alert("Ud seleccinó " + catalogo[1].nombre);
-      return catalogo[1].nombre + " $" + catalogo[1].precio;
+      return catalogo[1].nombre + ' $' + catalogo[1].precio;
+      break;
 
     case 3:
+      resultado = catalogo.find(pelicula => pelicula.nombre === "Star wars");
       alert("Ud seleccinó " + catalogo[2].nombre);
-      return catalogo[2].nombre + " $" + catalogo[2].precio;
-
+      return catalogo[2].nombre + ' $' + catalogo[2].precio;
+      break;
+      
     case 4:
+      resultado = catalogo.find(pelicula => pelicula.nombre === "Breaking bad");
       alert("Ud seleccinó " + catalogo[3].nombre);
-      return catalogo[3].nombre + " $" + catalogo[3].precio;
+      return catalogo[3].nombre + ' $' + catalogo[3].precio;
+      break;
 
     case 5:
+      resultado = catalogo.find(pelicula => pelicula.nombre === "Game of thrones");
       alert("Ud seleccinó " + catalogo[4].nombre);
-      return catalogo[4].nombre + " $" + catalogo[4].precio;
+      return catalogo[4].nombre + ' $' + catalogo[4].precio;
+      break;
 
     case 6:
+      resultado = catalogo.find(pelicula => pelicula.nombre === "Prison break");
       alert("Ud seleccinó " + catalogo[5].nombre);
-      return catalogo[5].nombre + " $" + catalogo[5].precio;
+      return catalogo[5].nombre + ' $' + catalogo[5].precio;
+      break;
 
       case 7:
+        resultado = catalogo.find(pelicula => pelicula.nombre === 'Vikingos');
       alert("Ud seleccinó " + opcion_7.nombre);
-      return opcion_7.nombre + " $" + opcion_7.precio;
+      return opcion_7.nombre + ' $' + opcion_7.precio;
+      break;
 
       case 8:
+        resultado = catalogo.find(pelicula => pelicula.nombre === "Los Simpsons");
       alert("Ud seleccinó " + opcion_8.nombre);
-      return opcion_8.nombre + " $" + opcion_8.precio;
+      return opcion_8.nombre + ' $' + opcion_8.precio
 
     default:
       alert("Ud no seleccionó ninguna opción correctamente");
       break;
   }
+
+  return resultado
 }
 
 //Se declara un array para el carrito de compras
@@ -109,13 +128,19 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     "Perfecto. A continuación le brindaremos un listado de nuestro catálogo con sus respectivos precios"
   );
 
+  const seleccionSeriePelicula = (primeraEleccion) => {
   if (primeraEleccion.toLowerCase() == 'serie') {
-    const opcionCompra_1 = catalogo.filter((opciones) => opciones.precio === 1000);
+    const opcionCompra_1 = catalogo.filter(series => series.precio >= 1500);
     alert(opcionCompra_1)
   } else if (primeraEleccion.toLowerCase() == 'pelicula') {
-    const opcionCompra_2 = catalogo.filter((opciones) => opciones.precio === 1500)
+    const opcionCompra_2 = catalogo.filter(peliculas => peliculas.precio <= 1000);
     alert(opcionCompra_2)
-  } 
+  } else {
+    alert("Opción incorrecta")
+  }
+   }
+
+   seleccionSeriePelicula(primeraEleccion);
 
   //Elección del usuario del producto en caso de querer comprar.
 
