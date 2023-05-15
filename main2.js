@@ -11,7 +11,8 @@ const catalogo = [
 
 //Creo función constructora para agregar nuevos objetos
 
-function Opcion(nombre, precio)  {
+function Opcion(id, nombre, precio)  {
+  this.id = id,
   this.nombre = nombre;
   this.precio = precio;
 }
@@ -136,7 +137,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
       texto_1 += "Nombre: " + opcion.nombre + ", precio: " + opcion.precio + "\n";
     })
 
-    prompt(texto_1)
+    alert(texto_1)
   } else if (primeraEleccion.toLowerCase() == 'pelicula' || primeraEleccion.toLowerCase() == 'película') {
     const opcionCompra_2 = catalogo.filter(peliculas => peliculas.precio <= 1000);
     let texto_2 = ""
@@ -144,7 +145,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
       texto_2 += "Nombre: " + opcion.nombre + ", precio: " + opcion.precio + "\n";
     })
 
-    prompt(texto_2)
+    alert(texto_2)
   } else {
     alert("Opción incorrecta")
   }
@@ -168,6 +169,8 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     );
   }
 
+  //Aplicamos find para encontrar el producto que el usuario puso en "segunda selección" según su id
+
 //   const productoEncontrado = catalogo.find(producto => producto.id === segundaSeleccion)
 
 // if(productoEncontrado) {
@@ -175,8 +178,6 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 // } else {
 //   alert("El producto no se encuentra disponible")
 // }
-
-//Llamado a función declarada al prinicpio del código
 
 let producto = obtenerProducto(segundaSeleccion)
 
