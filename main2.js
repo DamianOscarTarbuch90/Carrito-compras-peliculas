@@ -1,12 +1,12 @@
 //Se crean objetos, uno por cada producto seleccionable en la tienda con sus propiedades básicas
 
 const catalogo = [
-{nombre: "El señor de los anillos", precio: 1000},
-{nombre: "Harry Potter", precio: 1000},
-{nombre: "Star wars", precio: 1000},
-{nombre: "Breaking bad", precio: 1500}, 
-{nombre: "Game of thrones", precio: 1500},
-{nombre: "Prison break", precio: 1500},
+{id: 1, nombre: "El señor de los anillos", precio: 1000},
+{id: 2, nombre: "Harry Potter", precio: 1000},
+{id: 3, nombre: "Star wars", precio: 1000},
+{id: 4, nombre: "Breaking bad", precio: 1500}, 
+{id: 5, nombre: "Game of thrones", precio: 1500},
+{id: 6, nombre: "Prison break", precio: 1500},
 ]
 
 //Creo función constructora para agregar nuevos objetos
@@ -16,8 +16,8 @@ function Opcion(nombre, precio)  {
   this.precio = precio;
 }
 
-let opcion_7 = new Opcion('Vikingos', '1500');
-let opcion_8 = new Opcion ("Los Simpsons", '1500');
+let opcion_7 = new Opcion('7', 'Vikingos', '1500');
+let opcion_8 = new Opcion ('8', "Los Simpsons", '1500');
 
 //Creamos una función para obtener el producto con switch
 
@@ -131,10 +131,20 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
   const seleccionSeriePelicula = (primeraEleccion) => {
   if (primeraEleccion.toLowerCase() == 'serie') {
     const opcionCompra_1 = catalogo.filter(series => series.precio >= 1500);
-    alert(opcionCompra_1)
-  } else if (primeraEleccion.toLowerCase() == 'pelicula') {
+    let texto_1 = ""
+    opcionCompra_1.forEach((opcion) => {
+      texto_1 += "Nombre: " + opcion.nombre + ", precio: " + opcion.precio + "\n";
+    })
+
+    prompt(texto_1)
+  } else if (primeraEleccion.toLowerCase() == 'pelicula' || primeraEleccion.toLowerCase() == 'película') {
     const opcionCompra_2 = catalogo.filter(peliculas => peliculas.precio <= 1000);
-    alert(opcionCompra_2)
+    let texto_2 = ""
+    opcionCompra_2.forEach((opcion) => {
+      texto_2 += "Nombre: " + opcion.nombre + ", precio: " + opcion.precio + "\n";
+    })
+
+    prompt(texto_2)
   } else {
     alert("Opción incorrecta")
   }
@@ -142,9 +152,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
    seleccionSeriePelicula(primeraEleccion);
 
-  //Elección del usuario del producto en caso de querer comprar.
-
-  let segundaSeleccion = Number(
+   let segundaSeleccion = Number(
     prompt(
       "Seleccione el título que ud desee, escribiendo solo el número correspodiente al mismo según el siguiente listado: \n \n 1) El señor de los anillos - $1000 \n 2) Harry Potter - $1000 \n 3) Star wars - $1000 \n 4) Breaking bad - $1500 \n 5) Gameof thrones - $1500 \n 6) Prison break - $1500 \n 7) Vikingos - $1500 \n 8) Los Simpsons - $1500"
     )
@@ -160,9 +168,17 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
     );
   }
 
+//   const productoEncontrado = catalogo.find(producto => producto.id === segundaSeleccion)
+
+// if(productoEncontrado) {
+//   alert("Ud compró: " + productoEncontrado.nombre)
+// } else {
+//   alert("El producto no se encuentra disponible")
+// }
+
 //Llamado a función declarada al prinicpio del código
 
-  const producto = obtenerProducto(segundaSeleccion)
+let producto = obtenerProducto(segundaSeleccion)
 
 //Por cada venta sumamos al carrito el producto que se vendió con la función push del array
 
