@@ -17,70 +17,10 @@ function Opcion(id, nombre, precio)  {
   this.precio = precio;
 }
 
-let opcion_7 = new Opcion('7', 'Vikingos', '1500');
-let opcion_8 = new Opcion ('8', "Los Simpsons", '1500');
+let opcion_7 = new Opcion(7, 'Vikingos', 1500);
+let opcion_8 = new Opcion (8, "Los Simpsons", 1500);
 
-//Creamos una función para obtener el producto con switch
-
-const obtenerProducto = (segundaSeleccion) => {
-
-  let resultado = null
-
-  switch (segundaSeleccion) {
-    case 1:
-      resultado = catalogo.find(pelicula => pelicula.nombre === "El señor de los anillos");
-      alert("Ud seleccinó " + catalogo[0].nombre);
-      return catalogo[0].nombre + ' $' + catalogo[0].precio;
-      break;
-
-    case 2:
-      resultado = catalogo.find(pelicula => pelicula.nombre === "Harry Potter");
-      alert("Ud seleccinó " + catalogo[1].nombre);
-      return catalogo[1].nombre + ' $' + catalogo[1].precio;
-      break;
-
-    case 3:
-      resultado = catalogo.find(pelicula => pelicula.nombre === "Star wars");
-      alert("Ud seleccinó " + catalogo[2].nombre);
-      return catalogo[2].nombre + ' $' + catalogo[2].precio;
-      break;
-      
-    case 4:
-      resultado = catalogo.find(pelicula => pelicula.nombre === "Breaking bad");
-      alert("Ud seleccinó " + catalogo[3].nombre);
-      return catalogo[3].nombre + ' $' + catalogo[3].precio;
-      break;
-
-    case 5:
-      resultado = catalogo.find(pelicula => pelicula.nombre === "Game of thrones");
-      alert("Ud seleccinó " + catalogo[4].nombre);
-      return catalogo[4].nombre + ' $' + catalogo[4].precio;
-      break;
-
-    case 6:
-      resultado = catalogo.find(pelicula => pelicula.nombre === "Prison break");
-      alert("Ud seleccinó " + catalogo[5].nombre);
-      return catalogo[5].nombre + ' $' + catalogo[5].precio;
-      break;
-
-      case 7:
-        resultado = catalogo.find(pelicula => pelicula.nombre === 'Vikingos');
-      alert("Ud seleccinó " + opcion_7.nombre);
-      return opcion_7.nombre + ' $' + opcion_7.precio;
-      break;
-
-      case 8:
-        resultado = catalogo.find(pelicula => pelicula.nombre === "Los Simpsons");
-      alert("Ud seleccinó " + opcion_8.nombre);
-      return opcion_8.nombre + ' $' + opcion_8.precio
-
-    default:
-      alert("Ud no seleccionó ninguna opción correctamente");
-      break;
-  }
-
-  return resultado
-}
+catalogo.push(opcion_7, opcion_8)
 
 //Se declara un array para el carrito de compras
 
@@ -171,15 +111,15 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   //Aplicamos find para encontrar el producto que el usuario puso en "segunda selección" según su id
 
-//   const productoEncontrado = catalogo.find(producto => producto.id === segundaSeleccion)
+  const productoEncontrado = catalogo.find(producto => producto.id === segundaSeleccion || producto.id == 7 && producto.id == 8)
 
-// if(productoEncontrado) {
-//   alert("Ud compró: " + productoEncontrado.nombre)
-// } else {
-//   alert("El producto no se encuentra disponible")
-// }
+if(productoEncontrado) {
+  alert("Ud compró: " + productoEncontrado.nombre)
+} else {
+  alert("El producto no se encuentra disponible")
+}
 
-let producto = obtenerProducto(segundaSeleccion)
+let producto = productoEncontrado.nombre + ' $' + productoEncontrado.precio;
 
 //Por cada venta sumamos al carrito el producto que se vendió con la función push del array
 
