@@ -113,11 +113,7 @@ while (consultaCompra != "NO" && consultaCompra != "no" && continuarCompra) {
 
   const productoEncontrado = catalogo.find(producto => producto.id === segundaSeleccion || producto.id == 7 && producto.id == 8)
 
-if(productoEncontrado) {
-  alert("Ud compró: " + productoEncontrado.nombre)
-} else {
-  alert("El producto no se encuentra disponible")
-}
+productoEncontrado ? alert("Ud compró: " + productoEncontrado.nombre) : alert("El producto no se encuentra disponible")
 
 let producto = productoEncontrado.nombre + ' $' + productoEncontrado.precio;
 
