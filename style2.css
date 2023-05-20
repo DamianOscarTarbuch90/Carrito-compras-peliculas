@@ -65,3 +65,11 @@ height: 100%;
 .buyButton:hover {
 opacity: 0.7;
 }
+
+.nav--carrito--p:hover {
+    cursor: pointer;
+}
+
+.modalButton:hover {
+cursor: pointer;
+}
