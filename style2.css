@@ -7,20 +7,18 @@
     height: 50px;
     display: flex;
     justify-content: space-around;
-
 }
 
 .main {
 background-color: rgb(228, 228, 228);}
 
-.main__div h1 {
+.main__container__h1 {
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .main--h1--p--img {
 width: 100%;
-height: 100%;
 }
 
 .main--shopContent {
@@ -62,6 +60,15 @@ height: 100%;
 
 }
 
+.main--modalContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
 .buyButton:hover {
 opacity: 0.7;
 }
@@ -72,4 +79,20 @@ opacity: 0.7;
 
 .modalButton:hover {
 cursor: pointer;
+}
+
+.carritoContent img {
+ width: 250px;
+ height: 150px;
+}
+
+.modal--header--tittle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.totalBuying {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
 }

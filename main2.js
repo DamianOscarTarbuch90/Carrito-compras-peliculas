@@ -1,4 +1,4 @@
-let carrito =  [];
+let carrito = JSON.parse(localStorage.getItem('carrito de compras')) || [];
 
 const shopContent = document.getElementById("main__shopContent")
 const verCarrito = document.getElementById("nav__carrito__p")
@@ -12,13 +12,15 @@ catalogo.forEach((productos) => {
   <h3 class="productName"> ${productos.nombre} </h3>
   <p class="productPrice"> $${productos.precio} </p> `
 
-  main__shopContent.append(contentImg);
+  shopContent.append(contentImg);
 
   let botonComprar = document.createElement("button");
   botonComprar.className = "buyButton"
   botonComprar.innerText = 'COMPRAR'
 
+  if(botonComprar) {
   contentImg.append(botonComprar)
+}
 
   botonComprar.addEventListener('click',() => {
   carrito.push({
@@ -27,24 +29,25 @@ catalogo.forEach((productos) => {
     nombre: productos.nombre,
     precio: productos.precio})
   })
+  localStorage.setItem('carrito de compras', JSON.stringify(carrito));
+
   console.log(carrito)
 
 })
 
 verCarrito.addEventListener('click', () => {
-  console.log("holaaaaa")
   modalContainer.innerHTML = ""
   modalContainer.style.display = "flex"
   let modalHeader = document.createElement("div")
   modalHeader.className = "modalHeader"
   modalHeader.innerHTML = `
-  <p class="modal--header--tittle">Carrito</p>`;
+  <p class="modal--header--tittle">CARRITO</p>`;
 
   modalContainer.append(modalHeader)
 
   let modalButton = document.createElement("p")
   modalButton.className = "modalButton"
-  modalButton.innerText = "x";
+  modalButton.innerText = "❌";
 
   modalButton.addEventListener('click',() => {
     modalContainer.style.display = "none";
@@ -69,12 +72,10 @@ verCarrito.addEventListener('click', () => {
   let totalBuying = document.createElement("div")
   totalBuying.className = "totalBuying"
   totalBuying.innerHTML = `
-  <p> el total a abonar es $ ${totalValor}</p>
+  <p> El total a abonar es $ ${totalValor}</p>
   `
-
   modalContainer.append(totalBuying)
 })
-
 
 
 
