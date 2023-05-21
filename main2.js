@@ -36,6 +36,11 @@ catalogo.forEach((productos) => {
 })
 
 verCarrito.addEventListener('click', () => {
+  Swal.fire({
+    icon: 'info',
+    title: 'Carrito',
+    text: 'Al final de la pantalla podrás ver el resumen parcial de tu compra!',
+  })
   modalContainer.innerHTML = ""
   modalContainer.style.display = "flex"
   let modalHeader = document.createElement("div")
@@ -76,9 +81,3 @@ verCarrito.addEventListener('click', () => {
   `
   modalContainer.append(totalBuying)
 })
-
-
-
-
-
-
