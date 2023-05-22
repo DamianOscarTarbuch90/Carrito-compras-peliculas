@@ -10,7 +10,8 @@ catalogo.forEach((productos) => {
   contentImg.innerHTML = `
   <img class="productImg" src="${productos.imagen}">
   <h3 class="productName"> ${productos.nombre} </h3>
-  <p class="productPrice"> $${productos.precio} </p> `
+  <p class="productPrice"> $${productos.precio} </p>
+ `
 
   shopContent.append(contentImg);
 
@@ -23,16 +24,26 @@ catalogo.forEach((productos) => {
 }
 
   botonComprar.addEventListener('click',() => {
+    const repeat = carrito.some((repeatProd) => repeatProd.id === productos.id)
+    if(repeat) {
+      carrito.map((prod) => {
+        if(prod.id === productos.id) {
+          prod.cantidad++
+        }
+      })
+    } else {
   carrito.push({
     id: productos.id,
     imagen: productos.imagen,
     nombre: productos.nombre,
-    precio: productos.precio})
+    precio: productos.precio,
+    cantidad: productos.cantidad,
   })
+}
   localStorage.setItem('carrito de compras', JSON.stringify(carrito));
-
   console.log(carrito)
-
+  })
+  
 })
 
 verCarrito.addEventListener('click', () => {
@@ -66,13 +77,15 @@ verCarrito.addEventListener('click', () => {
     carritoContent.innerHTML = `
     <img src="${productos.imagen}">
     <h3>${productos.nombre} </h3>
-    <p>${productos.precio}</p>
+    <p>$${productos.precio}</p>
+    <p>Cantidad: ${productos.cantidad}</p>
+    <p>Subtotal: $${productos.precio * productos.cantidad}</p>
     `;
 
     modalContainer.append(carritoContent);
   });
   
-  const totalValor = carrito.reduce((acc, el) => acc + el.precio, 0);
+  const totalValor = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
   let totalBuying = document.createElement("div")
   totalBuying.className = "totalBuying"

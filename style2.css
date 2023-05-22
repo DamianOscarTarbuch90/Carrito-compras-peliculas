@@ -81,6 +81,15 @@ opacity: 0.7;
 cursor: pointer;
 }
 
+.carritoContent {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.carritoContent h3{
+    padding-top: 20px;
+}
+
 .carritoContent img {
  width: 250px;
  height: 150px;
