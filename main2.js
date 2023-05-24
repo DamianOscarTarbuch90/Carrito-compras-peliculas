@@ -4,40 +4,36 @@ const shopContent = document.getElementById("main__shopContent")
 const verCarrito = document.getElementById("nav__carrito__p")
 const modalContainer = document.getElementById("main__modalContainer")
 
-catalogo.forEach((productos) => {
+catalogo.forEach((producto) => {
   let contentImg = document.createElement("div");
   contentImg.className = "productCard"
   contentImg.innerHTML = `
-  <img class="productImg" src="${productos.imagen}">
-  <h3 class="productName"> ${productos.nombre} </h3>
-  <p class="productPrice"> $${productos.precio} </p>
+  <img class="productImg" src="${producto.imagen}">
+  <h3 class="productName"> ${producto.nombre} </h3>
+  <p class="productPrice"> $${producto.precio} </p>
  `
 
   shopContent.append(contentImg);
 
   let botonComprar = document.createElement("button");
   botonComprar.className = "buyButton"
-  botonComprar.innerText = 'COMPRAR'
+  botonComprar.innerText = 'AGREGAR AL CARRITO'
 
   if(botonComprar) {
   contentImg.append(botonComprar)
 }
 
   botonComprar.addEventListener('click',() => {
-    const repeat = carrito.some((repeatProd) => repeatProd.id === productos.id)
-    if(repeat) {
-      carrito.map((prod) => {
-        if(prod.id === productos.id) {
-          prod.cantidad++
-        }
-      })
+    const productoExistente = carrito.find((prod) => prod.id === producto.id)
+    if(productoExistente) {
+    productoExistente.cantidad++
     } else {
   carrito.push({
-    id: productos.id,
-    imagen: productos.imagen,
-    nombre: productos.nombre,
-    precio: productos.precio,
-    cantidad: productos.cantidad,
+    id: producto.id,
+    imagen: producto.imagen,
+    nombre: producto.nombre,
+    precio: producto.precio,
+    cantidad: producto.cantidad,
   })
 }
   localStorage.setItem('carrito de compras', JSON.stringify(carrito));
@@ -71,18 +67,33 @@ verCarrito.addEventListener('click', () => {
     
   modalContainer.append(modalButton);
 
-  carrito.forEach((productos) => {
+  carrito.forEach((producto) => {
     let carritoContent = document.createElement("div")
     carritoContent.className = "carritoContent"
     carritoContent.innerHTML = `
-    <img src="${productos.imagen}">
-    <h3>${productos.nombre} </h3>
-    <p>$${productos.precio}</p>
-    <p>Cantidad: ${productos.cantidad}</p>
-    <p>Subtotal: $${productos.precio * productos.cantidad}</p>
+    <img src="${producto.imagen}">
+    <h3>${producto.nombre} </h3>
+    <p>$${producto.precio}</p>
+    <p>Cantidad: ${producto.cantidad}</p>
+    <p>Subtotal: $${producto.precio * producto.cantidad}</p>
     `;
 
     modalContainer.append(carritoContent);
+
+    const deleteButton = document.createElement("button")
+    deleteButton.className = "deleteButton"
+    deleteButton.innerText = "BORRAR DEL CARRITO"
+
+    carritoContent.append(deleteButton)
+
+    deleteButton.addEventListener('click', () => {
+      const index = carrito.findIndex((element) => element.id === producto.id)
+      if(index !== -1) {
+        carrito.splice(index,1)
+        localStorage.setItem('carrito de compras', JSON.stringify(carrito));
+      }
+    })
+
   });
   
   const totalValor = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);

@@ -1,10 +1,10 @@
 const catalogo = [
-    {id: 1, nombre: "El señor de los anillos", precio: 1000, imagen: "https://gamerstyle.com.mx/wp-content/uploads/2023/02/The-Lord-of-the-Rings-1.jpg", cantidad: 1},
+    {id: 1, nombre: "El Señor De Los Anillos", precio: 1000, imagen: "https://gamerstyle.com.mx/wp-content/uploads/2023/02/The-Lord-of-the-Rings-1.jpg", cantidad: 1},
     {id: 2, nombre: "Harry Potter", precio: 1000, imagen: "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2021/01/harry-potter-1.jpg?fit=2500%2C1576&quality=50&strip=all&ssl=1", cantidad: 1},
-    {id: 3, nombre: "Star wars", precio: 1000, imagen: "https://i.blogs.es/1da08b/1366_2000-9-/1366_2000.jpeg", cantidad: 1},
-    {id: 4, nombre: "Breaking bad", precio: 1500, imagen: "https://okdiario.com/img/series/2015/11/Breaking-Bad.jpg", cantidad: 1}, 
-    {id: 5, nombre: "Game of thrones", precio: 1500, imagen: "https://t.ctcdn.com.br/wQkKKDBe1HpwEmbJ7ADMfLznS_Q=/990x557/smart/i350335.jpeg", cantidad: 1},
-    {id: 6, nombre: "Prison break", precio: 1500, imagen: "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/6CA97D28A7739B90C589916E8B0338280CBFA7E9A3DE3304AAD40C91289B8007/scale?width=1200&aspectRatio=1.78&format=jpeg", cantidad: 1},
+    {id: 3, nombre: "Star Wars", precio: 1000, imagen: "https://i.blogs.es/1da08b/1366_2000-9-/1366_2000.jpeg", cantidad: 1},
+    {id: 4, nombre: "Breaking Bad", precio: 1500, imagen: "https://okdiario.com/img/series/2015/11/Breaking-Bad.jpg", cantidad: 1}, 
+    {id: 5, nombre: "Game Of Thrones", precio: 1500, imagen: "https://t.ctcdn.com.br/wQkKKDBe1HpwEmbJ7ADMfLznS_Q=/990x557/smart/i350335.jpeg", cantidad: 1},
+    {id: 6, nombre: "Prison Break", precio: 1500, imagen: "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/6CA97D28A7739B90C589916E8B0338280CBFA7E9A3DE3304AAD40C91289B8007/scale?width=1200&aspectRatio=1.78&format=jpeg", cantidad: 1},
     ]
     
     //Creo función constructora para agregar nuevos objetos
