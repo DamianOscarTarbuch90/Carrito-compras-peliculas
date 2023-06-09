@@ -90,13 +90,35 @@ verCarrito.addEventListener('click', () => {
   modalButton.className = "modalButton"
   modalButton.innerText = "❌";
 
+  modalContainer.append(modalButton);
+
+  let finalizarCompraButton = document.createElement("button")
+  finalizarCompraButton.className = "finalizarCompraButton"
+  finalizarCompraButton.innerText = "FINALIZAR COMPRA"
+
+  modalContainer.append(finalizarCompraButton)
+
+  finalizarCompraButton.addEventListener('click', () => {
+    if(totalValor == 0) {    Swal.fire({
+      icon: 'error',
+      title: 'Carrito vacío',
+      text: 'Seleccione un producto para sumar al carrito',
+    })
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Compra exitosa',
+        text: 'Se envió un mail a su dirección de correo electrónico con la confirmación de su compra',
+      })
+    }
+
+  })
+
   //Evento creado para que al apretar la X del modal se cierre el mismo
 
   modalButton.addEventListener('click',() => {
     modalContainer.style.display = "none";
     })
-    
-  modalContainer.append(modalButton);
 
   //Se recorre cada uno de los productos del carrito para llamar a todas sus propiedades cuando figuren en el carrito
 
